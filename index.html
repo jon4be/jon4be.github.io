@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Visualizador de Curvas Paramétricas 3D</title>
+  <link rel="stylesheet" href="styles.css" />
+  <script src="https://www.geogebra.org/apps/deployggb.js"></script>
+</head>
+<body>
+  <div class="bg-orb orb-one"></div><div class="bg-orb orb-two"></div><div class="bg-grid"></div>
+
+  <header class="topbar">
+    <div class="brand"><div class="logo">∮</div><div><h1>Curvas Paramétricas 3D</h1></div></div>
+    <nav class="desktop-nav"><a href="operaciones.html">Operaciones</a><a href="manual.html">Manual</a><a href="video.html">Video</a></nav>
+    <button class="menu-btn" id="menuBtn">☰</button>
+  </header>
+
+  <aside class="side-menu" id="sideMenu">
+    <button class="close-menu" id="closeMenu">×</button>
+    <h2>Menú</h2>
+    <a href="operaciones.html">Operaciones matemáticas</a>
+    <a href="manual.html">Manual de usuario</a>
+    <a href="video.html">Video tutorial</a>
+    <a href="#panel-config">Configurar curva</a>
+    <a href="#panel-resultados">Resultados</a>
+  </aside>
+
+  <main class="layout">
+    <section class="hero card">
+      <div>
+        <h2>Introduce una curva y analiza su geometría diferencial.</h2>
+        <p class="description">Escribe las componentes x(t), y(t), z(t). El programa muestra la curva, el punto móvil, la tangente unitaria, la normal unitaria, la binormal, la concavidad, la curvatura y la torsión.</p>
+      </div>
+      <div class="status-pill" id="statusPill">Cargando GeoGebra...</div>
+    </section>
+
+    <section class="workspace">
+      <section class="control-panel card" id="panel-config">
+        <div class="section-title"><span>01</span><h3>Función paramétrica</h3></div>
+        <label class="input-group"><span>x(t)</span><input id="xInput" value="t * cos(t)" autocomplete="off" /></label>
+        <label class="input-group"><span>y(t)</span><input id="yInput" value="t * sin(t)" autocomplete="off" /></label>
+        <label class="input-group"><span>z(t)</span><input id="zInput" value="t" autocomplete="off" /></label>
+        <div class="button-row"><button class="primary-btn" id="drawBtn">Graficar curva</button><button class="ghost-btn" id="randomBtn">Curva random</button></div>
+
+        <div class="section-title compact"><span>02</span><h3>Parámetro</h3></div>
+        <div class="slider-box">
+          <div class="slider-head"><span>Valor de t</span><strong id="tValue">0.70</strong></div>
+          <input type="range" id="tSlider" min="-5" max="5" step="0.01" value="0.7" />
+          <div class="mini-labels"><span>-5</span><span>5</span></div>
+        </div>
+        <button class="ghost-btn full" id="playBtn">▶ Animar punto</button>
+
+        <div class="section-title compact"><span>03</span><h3>Mostrar / ocultar</h3></div>
+        <div class="toggles">
+          <label><input type="checkbox" data-object="f" checked /> Curva</label>
+          <label><input type="checkbox" data-object="A" checked /> Punto móvil</label>
+          <label><input type="checkbox" data-object="u1" checked /> Vector origen-punto</label>
+          <label><input type="checkbox" data-object="TangenteUnitario" checked /> Tangente unitaria</label>
+          <label><input type="checkbox" data-object="NormalUnitario" checked /> Normal unitaria</label>
+          <label><input type="checkbox" data-object="Binormal" checked /> Binormal</label>
+          <label><input type="checkbox" data-object="Concavidad" checked /> Concavidad</label>
+          <label><input type="checkbox" data-object="texto2" checked /> Curvatura</label>
+          <label><input type="checkbox" data-object="texto3" checked /> Torsión</label>
+        </div>
+      </section>
+
+      <section class="viewer-card card">
+        <div class="viewer-header"><div><p class="eyebrow">Vista GeoGebra</p></div><button class="ghost-btn small" id="resetViewBtn">Recentrar</button></div>
+        <div id="ggb-element"></div>
+        <section class="data-panel" id="panel-resultados">
+          <div class="section-title"><span>04</span><h3>Resultados numéricos</h3></div>
+          <div class="metrics-grid">
+            <div class="metric"><span>Curvatura κ(t)</span><strong id="curvatureValue">---</strong></div>
+            <div class="metric"><span>Torsión τ(t)</span><strong id="torsionValue">---</strong></div>
+            <div class="metric"><span>Punto A</span><strong id="pointValue">---</strong></div>
+            <div class="metric"><span>Tangente unitaria T(t)</span><strong id="tangentValue">---</strong></div>
+            <div class="metric"><span>Normal unitaria N(t)</span><strong id="normalValue">---</strong></div>
+            <div class="metric"><span>Binormal B(t)</span><strong id="binormalValue">---</strong></div>
+            <div class="metric"><span>Concavidad / aceleración r''(t)</span><strong id="concavityValue">---</strong></div>
+            <div class="metric"><span>Magnitud de concavidad |r''(t)|</span><strong id="concavityMagnitudeValue">---</strong></div>
+          </div>
+        </section>
+      </section>
+    </section>
+
+  </main>
+
+  
+  <script src="app.js"></script>
+</body>
+</html>

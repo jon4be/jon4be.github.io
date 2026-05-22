@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="styles.css">
+  <title>Operaciones matemáticas</title>
+</head>
+<body>
+  <div class="bg-orb orb-one"></div><div class="bg-orb orb-two"></div><div class="bg-grid"></div>
+  <main class="content-page">
+    <a class="back-link" href="index.html">← Volver al visualizador</a>
+    <section class="card">
+      <p class="eyebrow">Base matemática del programa</p>
+      <h2>Operaciones matemáticas</h2>
+      <p>Este apartado resume las operaciones usadas para analizar una curva paramétrica en tres dimensiones. El programa toma una curva de la forma:</p>
+      <div class="code-box"><p><b>r(t) = (x(t), y(t), z(t))</b></p></div>
+
+      <div class="formula-grid">
+        <div class="formula-card"><p><b>Punto móvil:</b></p><p>A = r(u) = (x(u), y(u), z(u))</p></div>
+        <div class="formula-card"><p><b>Vector origen-punto:</b></p><p>OA = Vector(O, A)</p></div>
+        <div class="formula-card"><p><b>Velocidad:</b></p><p>r'(t) = (x'(t), y'(t), z'(t))</p></div>
+        <div class="formula-card"><p><b>Aceleración / concavidad:</b></p><p>r''(t) = (x''(t), y''(t), z''(t))</p></div>
+        <div class="formula-card"><p><b>Tangente unitaria:</b></p><p>T(t) = r'(t) / |r'(t)|</p></div>
+        <div class="formula-card"><p><b>Binormal:</b></p><p>B(t) = (r'(t) × r''(t)) / |r'(t) × r''(t)|</p></div>
+        <div class="formula-card"><p><b>Normal unitaria:</b></p><p>N(t) = B(t) × T(t)</p></div>
+        <div class="formula-card"><p><b>Curvatura:</b></p><p>κ(t) = |r'(t) × r''(t)| / |r'(t)|³</p></div>
+        <div class="formula-card"><p><b>Torsión:</b></p><p>τ(t) = ((r'(t) × r''(t)) · r'''(t)) / |r'(t) × r''(t)|²</p></div>
+        <div class="formula-card"><p><b>Concavidad graficada:</b></p><p>Vector(A, A + UnitVector(r''(u)))</p></div>
+      </div>
+
+      <h3>Cómo interpreta el visualizador cada dato</h3>
+      <p><b>Tangente unitaria:</b> muestra hacia dónde avanza la curva en el punto seleccionado por el deslizador.</p>
+      <p><b>Normal unitaria:</b> muestra hacia dónde cambia la dirección de la curva.</p>
+      <p><b>Binormal:</b> representa un vector perpendicular al plano formado por la tangente y la normal.</p>
+      <p><b>Concavidad:</b> se representa con la aceleración r''(t). En la gráfica se dibuja como una flecha amarilla desde el punto móvil para mostrar hacia dónde se dobla la curva.</p>
+      <p><b>Curvatura:</b> mide qué tanto se curva la trayectoria. Un valor grande indica que la curva cambia de dirección con mayor intensidad.</p>
+      <p><b>Torsión:</b> mide qué tanto la curva se sale del plano osculador, es decir, qué tanto “gira” en el espacio 3D.</p>
+    </section>
+  </main>
+</body>
+</html>
